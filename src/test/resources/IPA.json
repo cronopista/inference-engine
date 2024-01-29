@@ -1,0 +1,288 @@
+/*
+A. ASIGNATION
+###########################################################
+
+
+1. Build a dictionary of one to one relations with most common transcriptions, without stress
+2. For every word, assign all unequivocal relations
+3. If ambiguos relations are present, assign them.
+4. 
+
+
+*/
+
+a->fg 
+b->j 
+c->
+d->r (-1 == c)
+ ->  (-1 == b)
+
+abcd
+fgjr
+
+acdb
+fgrj
+
+acbd
+fgj
+
+dcd
+r
+
+db
+j
+
+1. "a" : [
+	{
+		to:"fgjr",
+		conditions: [
+			{
+				position: +1,
+				values: ["b"]
+			}, {
+				position: +2,
+				values: ["c"]
+			}, {
+				position: +3,
+				values: ["d"]
+			}
+		]
+	}, {
+		to:"fgrj",
+		conditions: [
+			{
+				position: +1,
+				values: ["c"]
+			}, {
+				position: +2,
+				values: ["d"]
+			}, {
+				position: +3,
+				values: ["b"]
+			}
+		]
+	},
+	
+]
+
+
+2. "a" : [
+	{
+		to:"fg",
+		conditions: [
+			{
+				position: +1,
+				values: ["b", "c"]
+			}, {
+				position: +2,
+				values: ["c", "d"]
+			}, {
+				position: +3,
+				values: ["d", "b"]
+			}
+		]
+	},
+	
+	{
+		to:"fgjr",
+		conditions: [
+			{
+				position: +1,
+				values: ["b"]
+			}, {
+				position: +2,
+				values: ["c"]
+			}, {
+				position: +3,
+				values: ["d"]
+			}
+		]
+	}, {
+		to:"fgrj",
+		conditions: [
+			{
+				position: +1,
+				values: ["c"]
+			}, {
+				position: +2,
+				values: ["d"]
+			}, {
+				position: +3,
+				values: ["b"]
+			}
+		]
+	},
+	
+]
+
+	  
+
+/*
+B. REGULARITIES
+###########################################################
+
+1.	HAND -> XOL 
+	Statement
+*/
+{
+	"H": [{
+		to:X,
+		variability:0,
+		conditions: [
+			{
+				position: +1,
+				values: ["A"]
+			}, {
+				position: +2,
+				values: ["N"]
+			}, {
+				position: +3,
+				values: ["D"]
+			}
+		]
+	}]
+
+}
+/*2.	HOLES -> XAK 
+	Statements
+*/
+{
+	"H": [{
+		to:X,
+		variability:0,
+		conditions: [
+			{
+				position: +1,
+				values: ["A"]
+			}, {
+				position: +2,
+				values: ["N"]
+			}, {
+				position: +3,
+				values: ["D"]
+			}
+		]
+	},{
+		to:X,
+		variability:0,
+		conditions: [
+			{
+				position: +1,
+				values: ["O"]
+			}, {
+				position: +2,
+				values: ["L"]
+			}, {
+				position: +3,
+				values: ["E"]
+			}, {
+				position: +4,
+				values: ["S"]
+			}
+		]
+	}]
+
+}
+/*3. Hypothesis */
+{
+	"H": [{
+		to:X,
+		conditions: [
+			{
+				position: +1,
+				values: ["A", "O"]
+			}, {
+				position: +2,
+				values: ["N", "L"]
+			}, {
+				position: +3,
+				values: ["D", "E"]
+			}, {
+				position: +4,
+				values: ["", "S"]
+				
+			}
+		]
+	}]
+
+}
+/*4. 	THORNE -> ZORNE
+
+ */
+{
+	"H": [{
+		to:X,
+		count:2,
+		conditions: [
+			{
+				position: +1,
+				values: ["A", "O"]
+			}, {
+				position: +2,
+				values: ["N", "L"]
+			}, {
+				position: +3,
+				values: ["D", "E"]
+			}, {
+				position: +4,
+				values: ["", "S"]
+				
+			}
+		]
+	},{
+		to:Z,
+		count:1,
+		conditions: [
+			{
+				position: -1,
+				values: ["T"]
+			}, {
+				position: +1,
+				values: ["O"]
+			}, {
+				position: +2,
+				values: ["R"]
+			}, {
+				position: +3,
+				values: ["N"]
+			}, {
+				position: +4,
+				values: ["E"]
+				
+			}
+		]
+		
+		
+		
+	}]
+
+}
+/*5. 	SIMPLIFY 
+
+ */
+{
+	"H": [{
+		to:X,
+		count:200,
+		conditions: [
+			{
+				position: -1,
+				values: ["A", "O", "K", ...]
+			}
+		]
+	},{
+		to:Z,
+		count:100,
+		conditions: [
+			{
+				position: -1,
+				values: ["T"]
+			}
+			
+		]
+		
+		
+		
+	}]
+
+}
